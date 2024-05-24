@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Heart Disease Prediction</h1>
+    <form action="/predict" method="post" class="mt-4">
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+            <small class="form-text text-muted">Example: 45</small>
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <select class="form-control" id="sex" name="sex" required>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+            <small class="form-text text-muted">Example: Male</small>
+        </div>
+        <div class="form-group">
+            <label for="cp">Chest Pain Type</label>
+            <select class="form-control" id="cp" name="cp" required>
+                <option value="0">0: Typical Angina</option>
+                <option value="1">1: Atypical Angina</option>
+                <option value="2">2: Non-anginal Pain</option>
+                <option value="3">3: Asymptomatic</option>
+            </select>
+            <small class="form-text text-muted">Example: 1: Atypical Angina</small>
+        </div>
+        <div class="form-group">
+            <label for="trestbps">Resting Blood Pressure</label>
+            <input type="number" class="form-control" id="trestbps" name="trestbps" required>
+            <small class="form-text text-muted">Example: 120</small>
+        </div>
+        <div class="form-group">
+            <label for="chol">Cholesterol</label>
+            <input type="number" class="form-control" id="chol" name="chol" required>
+            <small class="form-text text-muted">Example: 200</small>
+        </div>
+        <div class="form-group">
+            <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dl</label>
+            <select class="form-control" id="fbs" name="fbs" required>
+                <option value="1">True</option>
+                <option value="0">False</option>
+            </select>
+            <small class="form-text text-muted">Example: True</small>
+        </div>
+        <div class="form-group">
+            <label for="restecg">Resting ECG</label>
+            <select class="form-control" id="restecg" name="restecg" required>
+                <option value="0">0: Normal</option>
+                <option value="1">1: Having ST-T wave abnormality</option>
+                <option value="2">2: Showing probable or definite left ventricular hypertrophy</option>
+            </select>
+            <small class="form-text text-muted">Example: 0: Normal</small>
+        </div>
+        <div class="form-group">
+            <label for="thalach">Maximum Heart Rate Achieved</label>
+            <input type="number" class="form-control" id="thalach" name="thalach" required>
+            <small class="form-text text-muted">Example: 150</small>
+        </div>
+        <div class="form-group">
+            <label for="exang">Exercise Induced Angina</label>
+            <select class="form-control" id="exang" name="exang" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <small class="form-text text-muted">Example: No</small>
+        </div>
+        <div class="form-group">
+            <label for="oldpeak">ST Depression Induced by Exercise</label>
+            <input type="number" step="0.1" class="form-control" id="oldpeak" name="oldpeak" required>
+            <small class="form-text text-muted">Example: 1.5</small>
+        </div>
+        <div class="form-group">
+            <label for="slope">Slope of Peak Exercise ST Segment</label>
+            <select class="form-control" id="slope" name="slope" required>
+                <option value="0">0: Upsloping</option>
+                <option value="1">1: Flat</option>
+                <option value="2">2: Downsloping</option>
+            </select>
+            <small class="form-text text-muted">Example: 1: Flat</small>
+        </div>
+        <div class="form-group">
+            <label for="ca">Number of Major Vessels (0-3)</label>
+            <input type="number" class="form-control" id="ca" name="ca" required>
+            <small class="form-text text-muted">Example: 0</small>
+        </div>
+        <div class="form-group">
+            <label for="thal">Thal</label>
+            <select class="form-control" id="thal" name="thal" required>
+                <option value="1">1: Normal</option>
+                <option value="2">2: Fixed Defect</option>
+                <option value="3">3: Reversable Defect</option>
+            </select>
+            <small class="form-text text-muted">Example: 2: Fixed Defect</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+</div>
+</body>
