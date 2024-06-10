@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom CSS styles */
+        body {
+            padding-top: 50px; /* Add padding to the top of the body to accommodate the fixed navbar */
+            text-align: center; /* Center align the content */
+        }
+        h1 {
+            margin-bottom: 30px; /* Add margin below the heading */
+        }
+        form {
+            max-width: 400px; /* Set maximum width for the form */
+            margin: auto; /* Center align the form */
+        }
+        .form-group {
+            margin-bottom: 20px; /* Add margin below form fields */
+        }
+        .error-message {
+            color: red; /* Set color for error messages */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">Heart Disease Prediction</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('signup') }}">Signup</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="container mt-5">
+        <h1>Sign Up</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label }}
+                {{ form.username(class="form-control") }}
+                {% for error in form.username.errors %}
+                    <small class="error-message">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class="form-control") }}
+                {% for error in form.password.errors %}
+                    <small class="error-message">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                {{ form.confirm.label }}
+                {{ form.confirm(class="form-control") }}
+                {% for error in form.confirm.errors %}
+                    <small class="error-message">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary">{{ form.submit.label }}</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
