@@ -106,21 +106,6 @@ def signup():
         return redirect(url_for('login'))
     return render_template('signup.html', form=form)
 
-@app.route('/reset_password', methods=['GET', 'POST'])
-def reset_password():
-    form = ResetPasswordForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if user:
-            hashed_password = generate_password_hash(form.password.data)
-            user.password = hashed_password
-            db.session.commit()
-            flash('Your password has been updated!', 'success')
-            return redirect(url_for('login'))
-        else:
-            flash('Username not found', 'danger')
-    return render_template('reset_password.html', form=form)
-
 @app.route('/logout')
 @login_required
 def logout():
